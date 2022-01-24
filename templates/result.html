@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: #161439;
+        min-height: 100vh;
+      }
+
+      p {
+        color: blanchedalmond;
+        font-size: 1rem;
+      }
+      .icon {
+        height: 40vh;
+        /* background-color: black; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .results-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .results {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .prediction {
+        height: 70px;
+        width: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background-color: #291c5e;
+        margin: 20px 0;
+        box-shadow: 0 0 20px 20;
+      }
+      .position {
+        background-color: #753ced;
+        margin-top: 25px;
+        height: 50px;
+        width: 200px;
+        border: none;
+        border-radius: 5px;
+        color: blanchedalmond;
+        text-transform: uppercase;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+      }
+
+      a {
+        text-decoration: none;
+        color: blanchedalmond;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="icon">
+      <div class="container">
+        <img
+          src="{{ url_for('static', filename='../static/Group 188.png') }}"
+          alt="icon"
+        />
+        <h2 style="color: blanchedalmond;">
+          DRUG PREDICITON BASED ON MEDICINE REVIEW USING NLP
+        </h2>
+      </div>
+    </header>
+    <p style="color: blanchedalmond; font-size: 20; text-align: center;">
+      <b>Results for Comment</b>
+    </p>
+    <div class="results-container">
+      <div class="results">
+        {% if prediction == 0%}
+        <div class="prediction">
+          <h2 style="color: red;">Ethinyl estradiol / norethindrone</h2>
+        </div>
+        {% elif prediction == 1%}
+        <div class="prediction">
+          <h2 style="color: blanchedalmond;">
+            Ethinyl estradiol / norgestimate
+          </h2>
+        </div>
+        {% elif prediction == 2%}
+        <div class="prediction">
+          <h2 style="color: blanchedalmond;">Etonogestrel</h2>
+        </div>
+        {% elif prediction == 3%}
+        <div class="prediction">
+          <h2 style="color: blanchedalmond;">Levonorgestrel</h2>
+        </div>
+        {% elif prediction == 4%}
+        <div class="prediction">
+          <h2 style="color: blanchedalmond;">Nexplanon</h2>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    <div class="prediction">
+      <h2 style="color: red;">Ethinyl estradiol / norethindrone</h2>
+    </div>
+    <div class="prediction">
+      <h2 style="color: blanchedalmond;">
+        Ethinyl estradiol / norgestimate
+      </h2>
+    </div>
+    <div class="prediction">
+      <h2 style="color: blanchedalmond;">Etonogestrel</h2>
+    </div>
+    <div class="prediction">
+      <h2 style="color: blanchedalmond;">Levonorgestrel</h2>
+    </div>
+    <div class="prediction">
+      <h2 style="color: blanchedalmond;">Nexplanon</h2>
+    </div>
+    <div class="position">
+      <a href="{{ url_for('home')}}">Go back</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css" />
+    <!-- <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    /> -->
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: #161439;
+        min-height: 100vh;
+      }
+
+      p {
+        color: blanchedalmond;
+        font-size: 1rem;
+      }
+      .icon {
+        height: 40vh;
+        /* background-color: black; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .position {
+        height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .position form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .position textarea {
+        font-size: 1rem;
+      }
+      .position input {
+        background-color: #753ced;
+        margin-top: 25px;
+        height: 50px;
+        width: 200px;
+        border: none;
+        border-radius: 5px;
+        color: blanchedalmond;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="icon">
+      <div class="container">
+        <img
+          src="{{ url_for('static', filename='../static/Group 188.png') }}"
+          alt="icon"
+        />
+        <h2 style="color: blanchedalmond;">
+          DRUG PREDICITON BASED ON MEDICINE REVIEW USING NLP
+        </h2>
+      </div>
+    </header>
+
+    <div class="ml-container position">
+      <form action="{{ url_for('predict')}}" method="POST">
+        <p>Write Your Review here</p>
+        <!-- <input type="text" name="comment"/> -->
+        <textarea name="message" rows="5" cols="150"></textarea>
+
+        <input type="submit" class="btn-info" value="Predict!" />
+      </form>
+    </div>
+  </body>
+</html>
